@@ -7,30 +7,22 @@ on:
 
 jobs:
   ubuntu:
-    name: Firt job
     runs-on: ubuntu-latest
     steps:
-      - name: Step one
-        run: date
+      - run: date
       
   windows:
-    name: Second Job
     runs-on: windows-latest
     steps:
-      - name: Step one
-        run: date
+      - run: date
 
   macos:
-    name: Third Job
     runs-on: macos-latest
     steps:
-      - name: Step one
-        run: date
+      - run: date
 
   depends:
     needs: [ubuntu, windows, macos]
-    name: Forth job
     runs-on: ubuntu-latest
     steps:
-      - name: Step one
-        run: date
+      - run: date
