@@ -6,39 +6,31 @@ on:
       - main
 
 jobs:
-  job1:
+  ubuntu:
     name: Firt job
     runs-on: ubuntu-latest
     steps:
       - name: Step one
-        uses: actions/checkout@v2
-      - name: Step two
-        run: env | sort
+        run: date
       
-  job2:
+  windows:
     name: Second Job
     runs-on: windows-latest
     steps:
       - name: Step one
-        uses: actions/checkout@v2
-      - name: Step two
-        run: "Get-ChildItem Env: | Sort-Object Name"
+        run: date
 
-  job3:
+  macos:
     name: Third Job
     runs-on: macos-latest
     steps:
       - name: Step one
-        uses: actions/checkout@v2
-      - name: Step two
-        run: env | sort
+        run: date
 
-  job4:
-    needs: [job1, job2, job3]
+  depends:
+    needs: [ubuntu, windows, macos]
     name: Forth job
     runs-on: ubuntu-latest
     steps:
       - name: Step one
-        uses: actions/checkout@v2
-      - name: Step two
-        run: env | sort
+        run: date
